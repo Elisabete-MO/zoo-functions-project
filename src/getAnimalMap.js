@@ -1,38 +1,50 @@
 const data = require('../data/zoo_data');
-// const { species } = require('../data/zoo_data');
-// const { employees } = require('../data/zoo_data');
+const { species } = require('../data/zoo_data');
 
-function getAnimalMap(options) {
-  // seu código aqui
+getLocation = () =>  {
+  let localR = species.map((specie) => specie.location);
+  let local = localR.filter((loc, i) => localR.indexOf(loc) === i);
+  return local;
 }
 
+getanimals = (locals) => {
+  const result = [];
+  let animal;
+  locals.forEach((local) => {
+  animal = species.filter((specie) => specie.location === local);
+  // let nomes = 
+});
+  result.push(animal);
+  console.log(result);
+}
+
+function getAnimalMap(options) {
+  switch (options) {
+    case undefined:
+      getanimals(getLocation());
+      break;
+    case 'sex: male':
+      
+      break;
+    case 'sex: female':
+      
+      break;    
+    case sorted:
+      
+      break;
+    case includeNames:
+      
+      break;
+    default:
+      break;
+  }
+}
+// { includeNames: true, sex: 'female', sorted: true }
+// { includeNames: true, sex: 'female' }
+// { includeNames: true, sorted: true }
+// { includeNames: true }
+// { sex: 'female', sorted: true }
+// { sex: 'female' }
+getAnimalMap()
 module.exports = getAnimalMap;
 
-// function getEmployee(id) {
-//   let result = {};
-//   result = employees
-//     .find((func) => func.id === id);
-//   return result.responsibleFor;
-// }
-
-// function getName(ids) {
-//   const especies = [];
-//   if (!ids) {
-//     return especies;
-//   }
-//   ids.forEach((id) => especies.push(species.find((especie) => especie.id === id)).name);
-//   return especies;
-// }
-
-// function getAnimalsOlderThan(animal, age) {
-//   const especies = species.filter((especie) => especie.name === animal);
-//   const [{ residents }] = especies;
-//   const moradores = residents.every((morador) => morador.age >= age);
-//   return moradores;
-// }
-
-// function getOldestFromFirstSpecies(id) {
-//   let tutela = getEmployee(id);
-//   let especie = getName(tutela);
-//   console.log(especie);
-// }
